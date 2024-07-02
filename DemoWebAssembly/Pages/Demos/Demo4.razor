@@ -1,0 +1,23 @@
+﻿@page "/demo4"
+<h3>Demo4</h3>
+
+<div style="border : 1px black solid; max-height:200px; overflow-y:scroll;">
+    <ul>
+        @foreach(string s in MaListe)
+        {
+            <li>@s</li>
+        }
+    </ul>
+</div>
+<hr />
+<div style="border : 1px black solid; max-height:200px; overflow-y:scroll;">
+    <ul>
+        <Virtualize Items="MaListe" Context="s">
+            <li>@s</li>
+        </Virtualize>
+    </ul>
+</div>
+
+@code {
+
+}
