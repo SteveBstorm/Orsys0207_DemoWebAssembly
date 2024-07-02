@@ -1,0 +1,19 @@
+﻿@page "/demo3"
+<h3>Demo3</h3>
+
+<p>Reponse : @ReponseEnfant</p>
+
+<Child ValueFromParent="42" 
+    Question="Avez vous bien mangé ?"
+    Reponse="AfficheReponse"
+></Child>
+
+@code {
+    public string ReponseEnfant { get; set; }
+
+    void AfficheReponse(string r)
+    {
+        ReponseEnfant = r;
+        Console.WriteLine(r);
+    }
+}

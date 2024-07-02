@@ -1,0 +1,27 @@
+﻿@page "/demo1"
+
+<h3>Demo1</h3>
+
+<h1 class="maclass">@Value</h1>
+@* One-Way Binding : Lecture de propriété (readonly) *@
+
+@* <input type="number" @bind-value="Value"/> *@
+
+<input type="number" @bind-value="Value" @bind-value:event="oninput" />
+@* Two-ways Binding : Lecture Ecriture de prop *@
+
+<button @onclick="Increment" disabled="@(Value >= 50)">+</button>
+<button @onclick="@(() => Decrement(5))" disabled="@(Check())">-</button>
+@* Event Binding : Liaison d'une méthode c# à un event JS 
+    Commanding => Vocabulaire MVVM
+
+    Attribute Binding : Liaison d'une méthode/prop c# à un attribut HTML
+*@
+@if (true)
+{
+    <span>Salut tout le monde !!</span>
+}
+
+@code {
+
+}

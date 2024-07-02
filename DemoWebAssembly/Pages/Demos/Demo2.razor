@@ -1,0 +1,8 @@
+﻿@page "/demo2"
+<h3>Demo2</h3>
+
+<button @onclick="@(() => MyProperty += 1)">Rendu</button>
+
+<hr />
+
+<Child ValueFromParent="MyProperty"></Child>
