@@ -1,0 +1,26 @@
+﻿@page "/quizz"
+
+<h3>Exo1</h3>
+
+@if(!PartieTerminee)
+{
+    @if (string.IsNullOrWhiteSpace(Prenom))
+    {
+        <p>Entrez votre prénom : <input @bind-value="Prenom" /></p>
+    }
+    else
+    {
+        <Quizz Prenom="@Prenom" RepondreEvent="EnregisterReponse"></Quizz>    
+    }
+}
+else
+{
+    <h4>Vos réponses</h4>
+    <ul>
+        @foreach(string r in Reponses)
+        {
+            <li>@r</li>
+        }
+    </ul>
+    <p>Merci pour votre participation !!!</p>
+}
