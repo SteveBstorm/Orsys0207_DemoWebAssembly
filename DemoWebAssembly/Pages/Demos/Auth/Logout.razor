@@ -1,0 +1,13 @@
+﻿@page "/logout"
+@inject AuthenticationStateProvider StateProvider
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await JS.InvokeVoidAsync("localStorage.clear");
+        // await JS.InvokeVoidAsync("localStorage.removeItem", "token");
+        ((MyStateProvider)StateProvider).NotifyUserChanged();
+        Nav.NavigateTo("/");
+    }
+}

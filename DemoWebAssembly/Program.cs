@@ -1,4 +1,6 @@
 using DemoWebAssembly;
+using DemoWebAssembly.Pages.Demos.Auth;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -20,4 +22,9 @@ builder.Services.AddHttpClient("clientAPI2", sp =>
     new HttpClient();
     sp.BaseAddress = new Uri("https://apis.goole.com/auth");
 });
+
+//à ajouter pour l'authentification 
+builder.Services.AddAuthorizationCore();
+builder.Services.AddSingleton<AuthenticationStateProvider, MyStateProvider>();
+
 await builder.Build().RunAsync();
