@@ -1,0 +1,9 @@
+﻿@page "/demo7"
+<h3>Demo7</h3>
+<NavLink href="cible/42/x/toto">Lien 1</NavLink>
+<button @onclick="Redirect">Redirection</button>
+
+<button @onclick="@(() => Nav.NavigateTo("cible/187/x/bisous"))">Redirection 2</button>
+@code {
+
+}

@@ -1,0 +1,12 @@
+﻿@page "/demo8"
+@using DemoWebAssembly.Models
+<h3>Demo8</h3>
+<ul>
+    @foreach(Film f in Liste)
+    {
+        <li>@f.Titre : @f.AnneeSortie</li>
+    }
+</ul>
+@code {
+
+}

@@ -1,0 +1,12 @@
+﻿@page "/cible/{info:int}/x/{info2}"
+@using System.Text.Json.Serialization
+<h3>Cible</h3>
+<p>Info : @Info</p>
+<p>Info : @info2</p>
+@code {
+    [Parameter]
+    [JsonPropertyName("info")]
+    public int Info { get; set; }
+    [Parameter]
+    public string info2 { get; set; }
+}
