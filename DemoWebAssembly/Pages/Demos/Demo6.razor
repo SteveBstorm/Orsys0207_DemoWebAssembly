@@ -1,0 +1,58 @@
+﻿@page "/demo6"
+<h3>Demo6</h3>
+
+<EditForm Model="NouveauFilm" OnValidSubmit="ValidForm">
+    @* OnValidSubmit="" OnInvalidSubmit="" *@
+    @* <DataAnnotationsValidator /> *@
+    <ObjectGraphDataAnnotationsValidator />
+    @* Pour la validation des types complexe *@
+    <div>
+        <label>Titre</label>
+        <InputText class="form-control" @bind-Value="NouveauFilm.Titre"></InputText>
+        <ValidationMessage For="@(() => NouveauFilm.Titre)" />
+    </div>
+    <div>
+        <label>Année de sortie</label>
+        <InputNumber class="form-control" @bind-Value="NouveauFilm.AnneeSortie"></InputNumber>
+    </div>
+    <div>
+        <label>Synonpsis</label>
+        <InputTextArea class="form-control" @bind-Value="NouveauFilm.Synopsis"></InputTextArea>
+    </div>
+
+    <div>
+        <label>Prénom Réal</label>
+        <InputText class="form-control" @bind-Value="NouveauFilm.Realisateur.Prenom"></InputText>
+        <ValidationMessage For="@(() => NouveauFilm.Realisateur.Prenom)" />
+    </div>
+    <div>
+        <label>Nom Réal</label>
+        <InputText class="form-control" @bind-Value="NouveauFilm.Realisateur.Nom"></InputText>
+        <ValidationMessage For="@(() => NouveauFilm.Realisateur.Nom)" />
+    </div>
+    <div>
+        <InputSelect class="form-select" @bind-Value="NouveauFilm.Genre">
+            @foreach (string g in listeGenre)
+            {
+                <option value="@g">@g</option>
+            }
+        </InputSelect>
+    </div>
+
+    <div>
+        Bon film ?
+        <InputRadioGroup @bind-Value="NouveauFilm.Bonfilm">
+            Oui <InputRadio Value="true"></InputRadio>
+            Non <InputRadio Value="false"></InputRadio>
+        </InputRadioGroup>
+    </div>
+    <button type="button">Ajouter un acteur</button>
+    @* Si un autre bouton que le submit est nécessaire, bien penser à le typer en type="button"
+    type par défaut des bouton => submit *@
+    <button class="btn btn-success">Valider</button>
+    <ValidationSummary />
+</EditForm>
+
+@code {
+
+}
