@@ -31,12 +31,15 @@
         <ValidationMessage For="@(() => NouveauFilm.Realisateur.Nom)" />
     </div>
     <div>
-        <InputSelect class="form-select" @bind-Value="NouveauFilm.Genre">
+        <InputSelect class="form-select" @bind-Value="NouveauFilm.Genre" >
+            <option value="">Faites votre choix</option>
             @foreach (string g in listeGenre)
             {
                 <option value="@g">@g</option>
             }
         </InputSelect>
+        <ValidationMessage For="@(() => NouveauFilm.Genre)" />
+
     </div>
 
     <div>

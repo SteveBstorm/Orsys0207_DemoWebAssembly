@@ -15,6 +15,7 @@ namespace DemoWebAssembly.Models
         [ValidateComplexType]
         public Personne Realisateur { get; set; }
 
+        [Required]
         public string Genre { get; set; }
 
         public bool Bonfilm { get; set; }

@@ -16,9 +16,11 @@ namespace DemoWebAssembly.Pages.Demos
         public Film NouveauFilm { get; set; }
         public List<string> listeGenre { get; set; }
 
+        public string SelectedGenre { get; set; }
+
         protected override void OnInitialized()
         {
-            NouveauFilm = new Film();
+            NouveauFilm = new Film{Genre = "Action"};
             listeGenre = new List<string>();
             listeGenre.Add("Action");
             listeGenre.Add("Comédie");
