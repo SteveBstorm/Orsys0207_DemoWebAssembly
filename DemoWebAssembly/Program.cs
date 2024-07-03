@@ -23,7 +23,10 @@ builder.Services.AddHttpClient("clientAPI2", sp =>
     sp.BaseAddress = new Uri("https://apis.goole.com/auth");
 });
 
+
+
 //à ajouter pour l'authentification 
+//builder.Services.AddAuthorizationCore(o => o.AddPolicy("claimid1", options => { options.RequireClaim("UserId").Equals(1); }));
 builder.Services.AddAuthorizationCore();
 builder.Services.AddSingleton<AuthenticationStateProvider, MyStateProvider>();
 

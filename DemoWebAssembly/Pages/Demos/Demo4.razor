@@ -3,21 +3,24 @@
 
 <div style="border : 1px black solid; max-height:200px; overflow-y:scroll;">
     <ul>
-        @foreach(string s in MaListe)
+        @foreach (string s in MaListe)
         {
             <li>@s</li>
         }
     </ul>
 </div>
 <hr />
-<div style="border : 1px black solid; max-height:200px; overflow-y:scroll;">
-    <ul>
-        <Virtualize Items="MaListe" Context="s">
-            <li>@s</li>
-        </Virtualize>
-    </ul>
-</div>
-
+<AuthorizeView Roles="admin">
+    <Authorized>
+        <div style="border : 1px black solid; max-height:200px; overflow-y:scroll;">
+            <ul>
+                <Virtualize Items="MaListe" Context="s">
+                    <li>@s</li>
+                </Virtualize>
+            </ul>
+        </div>
+    </Authorized>
+</AuthorizeView>
 @code {
 
 }
