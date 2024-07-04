@@ -1,0 +1,43 @@
+﻿@page "/film"
+@using DemoWebAssembly.Models
+<h3>ListeFilm</h3>
+<div class="content">
+    <div class="w-50">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (Film f in Liste)
+                {
+                    <tr>
+                        <td>
+                            @f.Titre
+                        </td>
+                        <td><button class="btn btn-info btn-sm" @onclick="@(() => SelectFilm(f.Id))">Détails</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="droite">
+        <div>
+            <CreateFilm NotifyRegister="LoadData"></CreateFilm>
+        </div>
+        <div>
+            @if (SelectedFilmId > 0)
+            {
+                <DetailFilm FilmId="SelectedFilmId"></DetailFilm>
+
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

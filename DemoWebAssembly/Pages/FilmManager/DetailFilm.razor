@@ -1,0 +1,14 @@
+﻿@if (CurrentMovie != null)
+{
+    <div class="card">
+        <div class="card-header">@CurrentMovie.Titre</div>
+        <div class="card-body">
+            <p>Année de sortie : @CurrentMovie.AnneeSortie</p>
+            <p>Synopsis : @CurrentMovie.Synopsis</p>
+            <p>Réalisateur : @CurrentMovie.Realisateur.Prenom @CurrentMovie.Realisateur.Nom</p>
+        </div>
+    </div>
+}
+@code {
+
+}

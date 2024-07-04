@@ -1,4 +1,5 @@
 using DemoWebAssembly;
+using DemoWebAssembly.MiddleWare;
 using DemoWebAssembly.Pages.Demos.Auth;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
@@ -9,14 +10,20 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7107/") });
+//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7107/") });
+builder.Services.AddTransient<TokenInterceptor>();
+
+
 
 //Ajouter Microsoft.Extensions.Http
 builder.Services.AddHttpClient("clientAPI1", sp =>
 {
     new HttpClient();
     sp.BaseAddress = new Uri("https://localhost:7107/");
-});
+}).AddHttpMessageHandler<TokenInterceptor>();
+
+builder.Services.AddScoped<HttpClient>(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("clientAPI1"));
+
 builder.Services.AddHttpClient("clientAPI2", sp =>
 {
     new HttpClient();

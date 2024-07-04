@@ -1,0 +1,15 @@
+﻿.content {
+    display: flex;
+    flex-direction : row;
+
+}
+.list {
+    padding : 10px;
+    min-width : 45%;
+}
+
+.droite {
+    display : flex;
+    flex-direction : column;
+    min-width : 45%;
+}
